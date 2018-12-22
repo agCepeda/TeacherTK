@@ -14,6 +14,7 @@
 		FAFCE0C721CE852300DFCB8B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAFCE0C521CE852300DFCB8B /* LaunchScreen.storyboard */; };
 		FAFCE0D221CE852300DFCB8B /* TeacherTKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFCE0D121CE852300DFCB8B /* TeacherTKTests.swift */; };
 		FAFCE0DD21CE852300DFCB8B /* TeacherTKUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFCE0DC21CE852300DFCB8B /* TeacherTKUITests.swift */; };
+		FAFCE0EC21CE86AA00DFCB8B /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAFCE0EB21CE86AA00DFCB8B /* Alamofire.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		FAFCE0D821CE852300DFCB8B /* TeacherTKUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TeacherTKUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAFCE0DC21CE852300DFCB8B /* TeacherTKUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherTKUITests.swift; sourceTree = "<group>"; };
 		FAFCE0DE21CE852300DFCB8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAFCE0EB21CE86AA00DFCB8B /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAFCE0EC21CE86AA00DFCB8B /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +84,7 @@
 				FAFCE0D021CE852300DFCB8B /* TeacherTKTests */,
 				FAFCE0DB21CE852300DFCB8B /* TeacherTKUITests */,
 				FAFCE0BA21CE852100DFCB8B /* Products */,
+				FAFCE0EA21CE86A900DFCB8B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,6 +129,14 @@
 			path = TeacherTKUITests;
 			sourceTree = "<group>";
 		};
+		FAFCE0EA21CE86A900DFCB8B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FAFCE0EB21CE86AA00DFCB8B /* Alamofire.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,6 +147,7 @@
 				FAFCE0B521CE852100DFCB8B /* Sources */,
 				FAFCE0B621CE852100DFCB8B /* Frameworks */,
 				FAFCE0B721CE852100DFCB8B /* Resources */,
+				FAFCE0ED21CE870F00DFCB8B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -250,6 +263,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		FAFCE0ED21CE870F00DFCB8B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FAFCE0B521CE852100DFCB8B /* Sources */ = {
@@ -433,6 +467,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = TeacherTK/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -450,6 +488,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = TeacherTK/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

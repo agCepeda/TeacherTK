@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class ViewController: UIViewController {
 
@@ -16,5 +17,16 @@ class ViewController: UIViewController {
     }
 
 
+    @IBAction func exampleTest(_ sender: Any) {
+        Alamofire.request("https://api.bitso.com/v3/trades/?book=btc_mxn").responseJSON { (response) in
+            if let json = response.result.value {
+                print("JSON: \(json)") // serialized json response
+            }
+            
+            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
+                print("Data: \(utf8Text)") // original server data as UTF8 string
+            }
+        }
+    }
 }
 
